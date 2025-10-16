@@ -55,6 +55,7 @@ Learning-Kubernetes/
     ├── configmap.yaml
     ├── secrets.yaml
     ├── postgres-deployment.yaml
+    ├── postgres-pvc.yaml
     ├── postgres-service.yaml
     ├── backend-deployment.yaml
     ├── backend-service.yaml
