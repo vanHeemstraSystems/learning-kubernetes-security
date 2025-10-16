@@ -1,1 +1,27 @@
+# ====================================================================================
 
+# FILE: k8s/backend-service.yaml
+
+# DESCRIPTION: Internal service for backend API (ClusterIP)
+
+# ====================================================================================
+
+apiVersion: v1
+kind: Service
+metadata:
+name: backend-service
+namespace: secure-notes
+labels:
+app: backend-api
+spec:
+type: ClusterIP
+selector:
+app: backend-api
+ports:
+
+- port: 5000
+  targetPort: 5000
+  protocol: TCP
+  name: http
+
+-----
