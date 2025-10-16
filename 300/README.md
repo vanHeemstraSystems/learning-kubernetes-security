@@ -69,6 +69,7 @@ Learning-Kubernetes/
 
 - Docker Desktop with Kubernetes enabled, OR
 - Minikube, OR
+- [Kind](https://kind.sigs.k8s.io/docs/user/quick-start#configuring-your-kind-cluster) (RECOMMENDED), OR
 - Access to a Kubernetes cluster (EKS, GKE, AKS)
 - kubectl CLI installed
 - Basic understanding of containers and YAML
