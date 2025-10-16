@@ -1,5 +1,5 @@
-# learning-kubernetes
-Learning Kubernetes
+learning-kubernetes
+# Learning Kubernetes
 
 See [README.md](./100/README.md)
 
