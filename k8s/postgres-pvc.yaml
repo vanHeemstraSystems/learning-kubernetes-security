@@ -1,0 +1,21 @@
+# ====================================================================================
+
+# FILE: k8s/postgres-pvc.yaml
+
+# DESCRIPTION: Persistent volume claim for database storage
+
+# ====================================================================================
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+name: postgres-pvc
+namespace: secure-notes
+spec:
+accessModes:
+- ReadWriteOnce
+resources:
+requests:
+storage: 1Gi
+
+-----
