@@ -1,1 +1,17 @@
+# ====================================================================================
 
+# FILE: k8s/namespace.yaml
+
+# DESCRIPTION: Creates isolated namespace for the application
+
+# ====================================================================================
+
+apiVersion: v1
+kind: Namespace
+metadata:
+name: secure-notes
+labels:
+name: secure-notes
+environment: learning
+
+-----
