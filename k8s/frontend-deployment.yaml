@@ -1,1 +1,64 @@
+# ====================================================================================
 
+# FILE: k8s/frontend-deployment.yaml
+
+# DESCRIPTION: Frontend deployment with Nginx
+
+# ====================================================================================
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: frontend
+namespace: secure-notes
+labels:
+app: frontend
+spec:
+replicas: 2
+selector:
+matchLabels:
+app: frontend
+template:
+metadata:
+labels:
+app: frontend
+spec:
+securityContext:
+runAsNonRoot: true
+runAsUser: 101
+fsGroup: 101
+containers:
+- name: nginx
+image: secure-notes-frontend:v1
+imagePullPolicy: IfNotPresent
+ports:
+- containerPort: 8080
+name: http
+resources:
+requests:
+memory: “64Mi”
+cpu: “50m”
+limits:
+memory: “128Mi”
+cpu: “100m”
+securityContext:
+allowPrivilegeEscalation: false
+readOnlyRootFilesystem: false
+runAsNonRoot: true
+capabilities:
+drop:
+- ALL
+livenessProbe:
+httpGet:
+path: /health
+port: 8080
+initialDelaySeconds: 10
+periodSeconds: 10
+readinessProbe:
+httpGet:
+path: /health
+port: 8080
+initialDelaySeconds: 5
+periodSeconds: 5
+
+-----
