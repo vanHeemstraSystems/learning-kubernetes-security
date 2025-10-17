@@ -1,4 +1,4 @@
-* {
+- {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -303,6 +303,30 @@ footer {
 
 .tech-info li:last-child {
   border-bottom: none;
+}
+
+.tech-info strong {
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  ``` .section-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .note-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  ```
 }
 
 .tech-info strong {
