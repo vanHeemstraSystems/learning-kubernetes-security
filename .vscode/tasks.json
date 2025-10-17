@@ -2,9 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "docker-compose-up",
+      "label": "podman-compose-up",
       "type": "shell",
-      "command": "docker-compose",
+      "command": "podman-compose",
       "args": ["up", "-d"],
       "group": "build",
       "presentation": {
@@ -16,9 +16,9 @@
       "problemMatcher": []
     },
     {
-      "label": "docker-compose-down",
+      "label": "podman-compose-down",
       "type": "shell",
-      "command": "docker-compose",
+      "command": "podman-compose",
       "args": ["down"],
       "group": "build",
       "presentation": {

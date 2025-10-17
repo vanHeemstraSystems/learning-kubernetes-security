@@ -79,11 +79,33 @@ Learning-Kubernetes/
 ### 1. Clone and Navigate
 
 ```bash
-git clone https://github.com/yourusername/Learning-Kubernetes.git
-cd Learning-Kubernetes
+git clone https://github.com/yourusername/Learning-Kubernetes-Security.git
+cd Learning-Kubernetes-Security
 ```
 
 ### 2. Build Docker Images
+
+**Note**: If you use Podman instead of Docker, you have to start your machine first, like so:
+
+```
+podman machine init
+podman machine start
+```
+
+Check if it works with: `docker version`
+
+Where we have set an alias for Podman in `~/.zshr` or `~/.bashrc` like so:
+
+```
+alias docker=podman
+alias docker-compose=podman-compose
+```
+
+Then reload your shell:
+
+```
+source ~/.zshrc  # or ~/.bashrc
+```
 
 ```bash
 cd app/backend
@@ -240,7 +262,7 @@ kubectl delete namespace secure-notes
 
 MIT License - Feel free to use this for learning purposes.
 
------
+---
 
 **Author**: [Your Name] - Cyber Security Engineer  
 **Last Updated**: October 2025
