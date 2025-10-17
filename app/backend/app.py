@@ -60,7 +60,8 @@ def init_db():
         logger.info("Database initialized successfully")
     except Exception as e:
         logger.error(f"Database initialization error: {e}")
-        raise
+        # Don't raise the exception - table might already exist
+        pass
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -294,9 +295,10 @@ def get_stats():
         logger.error(f"Error retrieving stats: {e}")
         return jsonify({'error': 'Failed to retrieve stats'}), 500
 
-if __name__ == '__main__':
-    # Initialize database on startup
+# Initialize database when app starts
+with app.app_context():
     init_db()
-    
+
+if __name__ == '__main__':
     # Run Flask app
     app.run(host='0.0.0.0', port=5000, debug=False)
