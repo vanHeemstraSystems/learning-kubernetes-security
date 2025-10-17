@@ -115,6 +115,8 @@ cd ../frontend
 docker build -t secure-notes-frontend:v1 .
 ```
 
+You will see the images (here: `secure-notes-backend` and `secure-notes-frontend`) listed in Podman's Desktop application.
+
 ### 3. Create Namespace
 
 ```bash

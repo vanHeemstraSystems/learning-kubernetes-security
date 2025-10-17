@@ -25,8 +25,8 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000
-        fsGroup: 1000
+        runAsUser: 1002
+        fsGroup: 1002
       containers:
       - name: backend
         image: secure-notes-backend:v1

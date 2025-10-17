@@ -25,8 +25,8 @@ matchLabels:
     spec:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 101
-        fsGroup: 101
+        runAsUser: 1001
+        fsGroup: 1001
       containers:
         - name: nginx
           image: secure-notes-frontend:v1

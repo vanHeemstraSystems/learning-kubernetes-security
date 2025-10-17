@@ -2,8 +2,8 @@ FROM nginx:1.25-alpine
 
 # Create non-root user
 
-RUN addgroup -g 101 -S nginx-custom && \
-    adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx-custom -g nginx-custom nginx-custom
+RUN addgroup -g 1001 -S nginx-custom && \
+    adduser -S -D -H -u 1001 -h /var/cache/nginx -s /sbin/nologin -G nginx-custom -g nginx-custom nginx-custom
 
 # Copy custom nginx configuration
 

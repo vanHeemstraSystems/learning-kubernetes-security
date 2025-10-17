@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 # Create non-root user
 
-RUN groupadd -r appuser && useradd -r -g appuser appuser
+RUN groupadd -r -g 1002 appuser && useradd -r -g appuser -u 1002 appuser
 
 # Set working directory
 
