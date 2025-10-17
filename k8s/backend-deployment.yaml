@@ -30,7 +30,7 @@ spec:
       containers:
       - name: backend
         image: secure-notes-backend:v1
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         ports:
         - containerPort: 5000
           name: http

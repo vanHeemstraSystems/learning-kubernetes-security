@@ -85,6 +85,8 @@ cd Learning-Kubernetes-Security
 
 ### 2. Build Docker Images
 
+**⚠️ IMPORTANT**: You must build the Docker images BEFORE deploying to Kubernetes, otherwise pods will fail with `ImagePullBackOff` errors.
+
 **Note**: If you use Podman instead of Docker, you have to start your machine first, like so:
 
 ```
@@ -94,7 +96,7 @@ podman machine start
 
 Check if it works with: `docker version`
 
-Where we have set an alias for Podman in `~/.zshr` or `~/.bashrc` like so:
+Where we have set an alias for Podman in `~/.zshrc` or `~/.bashrc` like so:
 
 ```
 alias docker=podman
@@ -107,15 +109,30 @@ Then reload your shell:
 source ~/.zshrc  # or ~/.bashrc
 ```
 
+**Build the images:**
+
 ```bash
+# Build backend image
 cd app/backend
 docker build -t secure-notes-backend:v1 .
 
+# Build frontend image
 cd ../frontend
 docker build -t secure-notes-frontend:v1 .
+
+# Verify images were built
+docker images | grep secure-notes
 ```
 
 You will see the images (here: `secure-notes-backend` and `secure-notes-frontend`) listed in Podman's Desktop application.
+
+**Expected output:**
+
+```
+REPOSITORY                TAG       IMAGE ID       CREATED         SIZE
+secure-notes-backend      v1        xxxxxxxxxx     X minutes ago   XXX MB
+secure-notes-frontend     v1        xxxxxxxxxx     X minutes ago   XXX MB
+```
 
 \*_Note_: Set Up Local Development Cluster
 
@@ -208,13 +225,45 @@ kubectl apply -f k8s/network-policy.yaml
 kubectl apply -f k8s/rbac.yaml
 ```
 
-### 9. Access the Application
+### 9. Verify Deployment Status
+
+Before accessing the application, verify all components are running:
+
+```bash
+# Check all pods are running
+kubectl get pods -n secure-notes
+
+# Check services
+kubectl get svc -n secure-notes
+
+# Check if any pods are in error state
+kubectl get pods -n secure-notes | grep -v Running
+```
+
+**Expected output:**
+
+```
+NAME                           READY   STATUS    RESTARTS   AGE
+backend-api-xxx-xxx            1/1     Running   0          Xm
+frontend-xxx-xxx               1/1     Running   0          Xm
+postgres-xxx-xxx               1/1     Running   0          Xm
+```
+
+### 10. Access the Application
+
+Once all pods are running, access the application:
 
 ```bash
 kubectl port-forward -n secure-notes svc/frontend-service 8080:80
 ```
 
 Open http://localhost:8080 in your browser.
+
+**Troubleshooting:**
+
+- If pods show `ImagePullBackOff`: Build the Docker images first (see step 2)
+- If pods show `Pending`: Check resource availability with `kubectl describe pod <pod-name> -n secure-notes`
+- If pods show `CrashLoopBackOff`: Check logs with `kubectl logs <pod-name> -n secure-notes`
 
 ## Key Learning Points
 
