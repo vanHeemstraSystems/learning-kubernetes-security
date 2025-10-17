@@ -195,7 +195,19 @@ kubectl apply -f k8s/namespace.yaml
 kubectl apply -f k8s/secrets.yaml
 ```
 
-### 5. Deploy Database
+### 5. Build Docker Images
+
+**Important**: Before deploying the application, you must build the Docker images in minikube's environment:
+
+```bash
+# Build backend image
+minikube image build -t secure-notes-backend:v1 app/backend/
+
+# Build frontend image
+minikube image build -t secure-notes-frontend:v1 app/frontend/
+```
+
+### 6. Deploy Database
 
 ```bash
 kubectl apply -f k8s/postgres-deployment.yaml
@@ -203,7 +215,7 @@ kubectl apply -f k8s/postgres-service.yaml
 kubectl apply -f k8s/postgres-pvc.yaml
 ```
 
-### 6. Deploy Backend API
+### 7. Deploy Backend API
 
 ```bash
 kubectl apply -f k8s/configmap.yaml
@@ -211,21 +223,21 @@ kubectl apply -f k8s/backend-deployment.yaml
 kubectl apply -f k8s/backend-service.yaml
 ```
 
-### 7. Deploy Frontend
+### 8. Deploy Frontend
 
 ```bash
 kubectl apply -f k8s/frontend-deployment.yaml
 kubectl apply -f k8s/frontend-service.yaml
 ```
 
-### 8. Apply Security Policies
+### 9. Apply Security Policies
 
 ```bash
 kubectl apply -f k8s/network-policy.yaml
 kubectl apply -f k8s/rbac.yaml
 ```
 
-### 9. Verify Deployment Status
+### 10. Verify Deployment Status
 
 Before accessing the application, verify all components are running:
 
@@ -249,7 +261,7 @@ frontend-xxx-xxx               1/1     Running   0          Xm
 postgres-xxx-xxx               1/1     Running   0          Xm
 ```
 
-### 10. Access the Application
+### 11. Access the Application
 
 Once all pods are running, access the application:
 

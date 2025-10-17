@@ -30,7 +30,7 @@ spec:
       containers:
         - name: nginx
           image: secure-notes-frontend:v1
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
               name: http
