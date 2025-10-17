@@ -314,7 +314,7 @@ footer {
     font-size: 2em;
   }
 
-  ``` .section-header {
+  .section-header {
     flex-direction: column;
     gap: 15px;
     align-items: stretch;
@@ -325,8 +325,6 @@ footer {
     align-items: flex-start;
     gap: 10px;
   }
-
-  ```
 }
 
 .tech-info strong {

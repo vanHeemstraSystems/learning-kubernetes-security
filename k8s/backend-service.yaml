@@ -16,7 +16,7 @@ app: backend-api
 spec:
 type: ClusterIP
 selector:
-app: backend-api
+  app: backend-api
 ports:
   - port: 5000
     targetPort: 5000

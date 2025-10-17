@@ -13,9 +13,7 @@ name: postgres-pvc
 namespace: secure-notes
 spec:
 accessModes:
-- ReadWriteOnce
+  - ReadWriteOnce
 resources:
 requests:
 storage: 1Gi
-
------
