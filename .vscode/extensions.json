@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "ms-azuretools.vscode-docker",
+    "ms-kubernetes-tools.vscode-dockerfile",
+    "stylelint.vscode-stylelint",
+    "bradlc.vscode-tailwindcss",
+    "pranaygp.vscode-css-peek",
+    "aeschli.vscode-css-formatter",
+    "ritwickdey.liveserver",
+    "ms-python.python",
+    "ms-python.flake8",
+    "ms-python.black-formatter",
+    "redhat.vscode-yaml",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "ms-vscode.vscode-json"
+  ],
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-typescript-next"
+  ]
+}
