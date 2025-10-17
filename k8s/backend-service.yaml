@@ -18,10 +18,7 @@ type: ClusterIP
 selector:
 app: backend-api
 ports:
-
-- port: 5000
-  targetPort: 5000
-  protocol: TCP
-  name: http
-
------
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: http
