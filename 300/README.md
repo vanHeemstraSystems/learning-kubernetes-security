@@ -117,6 +117,55 @@ docker build -t secure-notes-frontend:v1 .
 
 You will see the images (here: `secure-notes-backend` and `secure-notes-frontend`) listed in Podman's Desktop application.
 
+\*_Note_: Set Up Local Development Cluster
+
+If you don't have a Kubernetes cluster running, you can set up a local development cluster using one of these options:
+
+**Option A: Minikube (Recommended for beginners)**
+
+```bash
+# Start minikube
+minikube start
+
+# Verify cluster is running
+kubectl cluster-info
+kubectl get nodes
+```
+
+**Option B: Kind (Kubernetes in Docker)**
+
+```bash
+# Install kind (if not already installed)
+# On macOS: brew install kind
+# On Linux: go install sigs.k8s.io/kind@v0.20.0
+
+# Create cluster
+kind create cluster --name secure-notes
+
+# Verify cluster
+kubectl cluster-info
+```
+
+**Option C: Docker Desktop**
+
+- Enable Kubernetes in Docker Desktop settings
+- Go to Settings → Kubernetes → Enable Kubernetes
+- Click "Apply & Restart"
+
+**Option D: Use existing cluster**
+If you have access to a remote cluster, ensure your kubectl context is set correctly:
+
+```bash
+# Check current context
+kubectl config current-context
+
+# List available contexts
+kubectl config get-contexts
+
+# Switch context if needed
+kubectl config use-context <your-cluster-context>
+```
+
 ### 3. Create Namespace
 
 ```bash
