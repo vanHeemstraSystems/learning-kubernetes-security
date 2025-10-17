@@ -9,11 +9,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-name: postgres-pvc
-namespace: secure-notes
+  name: postgres-pvc
+  namespace: secure-notes
 spec:
-accessModes:
+  accessModes:
   - ReadWriteOnce
-resources:
-requests:
-storage: 1Gi
+  resources:
+    requests:
+      storage: 1Gi
