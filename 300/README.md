@@ -183,6 +183,7 @@ kubectl apply -f k8s/secrets.yaml
 ```bash
 kubectl apply -f k8s/postgres-deployment.yaml
 kubectl apply -f k8s/postgres-service.yaml
+kubectl apply -f k8s/postgres-pvc.yaml
 ```
 
 ### 6. Deploy Backend API
