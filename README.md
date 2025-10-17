@@ -1,5 +1,5 @@
-learning-kubernetes
-# Learning Kubernetes
+learning-kubernetes-security
+# Learning Kubernetes Security
 
 ## 100 - Introduction
 
