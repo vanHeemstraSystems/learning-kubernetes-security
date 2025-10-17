@@ -9,8 +9,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-name: backend-config
-namespace: secure-notes
+  name: backend-config
+  namespace: secure-notes
 data:
   DB_HOST: postgres-service
   DB_NAME: notesdb
